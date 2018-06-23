@@ -4,7 +4,10 @@ const mongoose = require('mongoose');
 
 const Vote = require('../models/Vote');
 
-
+router.get('/exit', (req, res) => {
+  res.render('exit');
+   
+});
 
 router.get('/', (req, res) => {
    res.render('poll');
@@ -17,10 +20,10 @@ router.get('/', (req, res) => {
    { $inc: {points:1}}
    )
    .then(() => {
-     res.redirect('exit');
+     res.redirect('/exit');
    });
 });
-  
+
    
 
 module.exports = router;
