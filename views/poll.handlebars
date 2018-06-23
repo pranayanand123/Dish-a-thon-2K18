@@ -1,50 +1,117 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<style>
+  .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 80px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  padding-top: 60px;
+}
+
+</style>
+<script>
+  function openNav() {
+    document.getElementById("mySidenav").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+  }
+
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+  }
+</script> 
+>>>>>>> cbd03938e6183b7fe3c78e768b884c592d40b8ac
 <body>
+  <header>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+     <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+    <a href="#">
+      Admin</a>
+    <a href="#">
+      Voting</a>
+
+    <a href="#">Contact</a>
+   
+  </div>
+    <img src="https://www.dishtv.in/images/logo.png" style="margin-left: 100px; margin-top: 20px;">
+  </header>
+
   <div class="container">
-    <h2>Vote for your favourite movie</h2>
+    <h2>Vote for your favourite movie and get a chance to win coupons<sup>*</sup>.</h2>
     <div id="hasVotedAlreadyErrorMsg" class="card-panel hidden" style="width: 100%">
       <span class="red-text text-darken-2">You have already voted, you can only vote once.</span>
     </div>
-    <form id="vote-form" style="margin-left:45px;">
+    <form action="/" method = "post" style="margin-left:45px;">
       <p>
         <input type="radio" name="movie" id="padmavat" value="Padmavat">
         <label for="padmavat">Padmavat</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="other" value="Other">
-        <label for="other">Sholay</label>
+        <input type="radio" name="movie" id="sholay" value="Sholay">
+        <label for="sholay">Sholay</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="padmavat" value="Padmavat">
-        <label for="padmavat">Mr India</label>
+        <input type="radio" name="movie" id="mrindia" value="Mr India">
+        <label for="mrindia">Mr India</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="other" value="Other">
-        <label for="other">Golmaal</label>
+        <input type="radio" name="movie" id="golmaal" value="Golmaal">
+        <label for="golmaal">Golmaal</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="padmavat" value="Padmavat">
-        <label for="padmavat">Don</label>
+        <input type="radio" name="movie" id="don" value="Don">
+        <label for="don">Don</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="other" value="Other">
-        <label for="other">Lagaan</label>
+        <input type="radio" name="movie" id="lagaan" value="Lagaan">
+        <label for="lagaan">Lagaan</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="padmavat" value="Padmavat">
-        <label for="padmavat">Anand</label>
+        <input type="radio" name="movie" id="anand" value="Anand">
+        <label for="anand">Anand</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="other" value="Other">
-        <label for="other">3 Idiots</label>
+        <input type="radio" name="movie" id="idiot" value="3-Idiot">
+        <label for="idiot">3 Idiots</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="padmavat" value="Padmavat">
-        <label for="padmavat">Rang de Basanti</label>
+        <input type="radio" name="movie" id="rang" value="Rang de Basanti">
+        <label for="rang">Rang de Basanti</label>
       </p>
       <p>
-        <input type="radio" name="movie" id="other" value="Other">
-        <label for="other">Swades</label>
+        <input type="radio" name="movie" id="swades" value="Swades">
+        <label for="swades">Swades</label>
       </p>
       <input type="submit"  value="Vote" class="btn">
     </form>
@@ -52,6 +119,4 @@
     <br>
     <br>
     
-    <h5 style="text-align: center" id="chartTitle"></h5>
-    <div id="chartContainer" style="height: 300px;width:100%"></div>
   </div>
