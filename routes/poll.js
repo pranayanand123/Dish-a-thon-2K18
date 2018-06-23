@@ -2,6 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/vote', (req,res) => {
-    res.send('hey vote please');
-})
+router.get('/', (req,res) => {
+    res.render('poll');
+});
+
+
+module.exports = router;
