@@ -36,6 +36,9 @@
   margin-left: 50px;
   padding-top: 60px;
 }
+.abc{
+box-shadow:5px 5px 5px 5px;
+}
 
 </style>
 <script>
@@ -72,14 +75,18 @@
     <div id="hasVotedAlreadyErrorMsg" class="card-panel hidden" style="width: 100%">
       <span class="red-text text-darken-2">You have already voted, you can only vote once.</span>
     </div>
-    <form action="/" method = "post" style="margin-left:45px;">
+    <div class="row">
+    <div class="col-md-12">
+      <div class="card-panel  card-large abc ">
+        <span class="white-text">
+<form action="/" method = "post" style="margin-left:45px;">
       <p>
         <input type="radio" name="movie" id="padmavat" value="Padmavat">
-        <label for="padmavat">Padmavat</label>
+        <label for="padmavat"><b>Padmavat</label>
       </p>
       <p>
         <input type="radio" name="movie" id="sholay" value="Sholay">
-        <label for="sholay">Sholay</label>
+        <label for="sholay"><b>Sholay</b></label>
       </p>
       <p>
         <input type="radio" name="movie" id="mrindia" value="Mr India">
@@ -120,3 +127,10 @@
     <br>
     
   </div>
+
+        </span>
+      </div>
+    </div>
+  </div>
+    
+    
