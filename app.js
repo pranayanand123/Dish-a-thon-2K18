@@ -14,13 +14,14 @@ const app = express();
 // }).catch(function(err) {
 //   // handle the error
 // });
+
 cloudinary.config({ 
   cloud_name: 'dsluws85g', 
   api_key: '254539497132192', 
   api_secret: '7J0MX2U90fSr2-lwHcHjcBHsnLI' 
 });
 
-cloudinary.v2.uploader.upload('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/video.mp4?alt=media&token=270f171a-5acf-4e0a-9133-9f096c044c6e', 
+cloudinary.v2.uploader.upload('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/Shirt%20STOLEN%20While%20Talking%20to%20College%20Girls%20(BEST%20PICKUP%20LINE%20EVER)2.mp4?alt=media&token=254e1eea-1430-4e2b-97ef-ff6af506c5ee', 
   { resource_type: "video" },
   function(error, result) {
   console.log(result);
@@ -28,23 +29,22 @@ cloudinary.v2.uploader.upload('https://firebasestorage.googleapis.com/v0/b/login
   });
 
 
-
 app.get('/ml',(req,res) => {
   var sightengine = require('sightengine')('1821125839', 'AjmSejyjEv5rVhYjYykW');
-  sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/video.mp4?alt=media&token=270f171a-5acf-4e0a-9133-9f096c044c6e').then(function(result) {
-    for (var i = 0; i<result.data.frames.length; i++)
+  sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/Shirt%20STOLEN%20While%20Talking%20to%20College%20Girls%20(BEST%20PICKUP%20LINE%20EVER)2.mp4?alt=media&token=254e1eea-1430-4e2b-97ef-ff6af506c5ee').then(function(result) {
+  res.send(result) 
+  for (var i = 0; i<result.data.frames.length; i++)
 {
-  
-console.log(result.data.frames[i].nudity.partial);
-  if(result.data.frames[i].nudity.raw>.080)
+  if(result.data.frames[i].nudity.raw > 0.0)
   {
-
+console.log(result.data.frames[i].nudity);
+console.log(result.data.frames[i].info);
   }
+
 }
-})
-})
+  })
 
-
+});
 
 require('./models/Vote');
 const poll = require('./routes/poll');

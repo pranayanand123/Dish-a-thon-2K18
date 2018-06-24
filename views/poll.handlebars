@@ -38,6 +38,18 @@
 box-shadow:5px 5px 5px 5px;
 }
 
+.vid{
+  
+  
+  filter: blur(10px);
+  
+
+}
+video{
+  height: 40%;
+  width: 40%;
+  margin-left: 5%;
+}
 </style>
 <script>
   function openNav() {
@@ -118,10 +130,37 @@ box-shadow:5px 5px 5px 5px;
       </div>
     </div>
   </div>
-    
-{{!-- 
- <video poster="http://res.cloudinary.com/dsluws85g/video/upload/start_offset: "2.0", end_offset: "6.5"/xxhtmrgekyymemit0yyh.jpg" preload="none" controls>
-  <source src="http://res.cloudinary.com/dsluws85g/video/upload/start_offset: "2.0", end_offset: "6.5"/xxhtmrgekyymemit0yyh.webm" type="video/webm"/>
-  <source src="http://res.cloudinary.com/dsluws85g/video/upload/start_offset: "2.0", end_offset: "6.5"/xxhtmrgekyymemit0yyh.mp4" type="video/mp4"/>
-  <source src="http://res.cloudinary.com/dsluws85g/video/upload/start_offset: "2.0", end_offset: "6.5"/xxhtmrgekyymemit0yyh.ogv" type="video/ogg"/>
-</video> --}}
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+    <div  class="row">
+      
+<video id="myvid" poster="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.jpg" preload="none" controls="controls" >
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.webm" type="video/webm"/>
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.mp4" type="video/mp4"/>
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.mp4.ogv" type="video/ogg"/>
+</video>
+
+<video id="myvid2" poster="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.jpg" preload="none" controls="controls" >
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.webm" type="video/webm"/>
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.mp4" type="video/mp4"/>
+  <source src="http://res.cloudinary.com/dsluws85g/video/upload/v1529825045/m2d85hyud7dp6ytzwa10.mp4.ogv" type="video/ogg"/>
+</video>
+</div>
+<button onclick="myfuc()" style="background-color:white; border:white">A</button>
+<button onclick="myfu()" style="background-color:white; border:white">B</button>
+
+<script>
+function myfuc(){
+        $("#myvid").addClass("vid");
+    }
+
+function myfu(){
+        $("#myvid").removeClass("vid");
+    }
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
