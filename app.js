@@ -7,6 +7,11 @@ const path = require('path');
 
 const app = express();
 
+
+var sightengine = require('sightengine')('1067721843', 'D4788vHxodqs36pQdZWw');
+sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/Splash%20(1984)%20Mermaid%20Nude%20in%20Public.mp4?alt=media&token=b5cd90be-5cdf-4027-9d92-26a57d57a21a').then(function(result) {
+  console.log(result.data.frames);
+})
 require('./models/Vote');
 const poll = require('./routes/poll');
 
