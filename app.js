@@ -4,14 +4,48 @@ const mongoose = require('mongoose');
 const exphbs = require('express-handlebars');
 const cors = require('cors');
 const path = require('path');
-
+var cloudinary = require('cloudinary');
 const app = express();
 
+// var sightengine = require('sightengine')('1821125839', 'AjmSejyjEv5rVhYjYykW');
 
-var sightengine = require('sightengine')('1067721843', 'D4788vHxodqs36pQdZWw');
-sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/Splash%20(1984)%20Mermaid%20Nude%20in%20Public.mp4?alt=media&token=b5cd90be-5cdf-4027-9d92-26a57d57a21a').then(function(result) {
-  console.log(result.data.frames);
+// sightengine.check(['nudity', 'wad', 'faces', 'face-attributes', 'celebrities']).video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'https://localhost:5000/').then(function(result) {
+//   console.log(result)
+// }).catch(function(err) {
+//   // handle the error
+// });
+cloudinary.config({ 
+  cloud_name: 'dsluws85g', 
+  api_key: '254539497132192', 
+  api_secret: '7J0MX2U90fSr2-lwHcHjcBHsnLI' 
+});
+
+cloudinary.v2.uploader.upload('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/video.mp4?alt=media&token=270f171a-5acf-4e0a-9133-9f096c044c6e', 
+  { resource_type: "video" },
+  function(error, result) {
+  console.log(result);
+
+  });
+
+
+
+app.get('/ml',(req,res) => {
+  var sightengine = require('sightengine')('1821125839', 'AjmSejyjEv5rVhYjYykW');
+  sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/video.mp4?alt=media&token=270f171a-5acf-4e0a-9133-9f096c044c6e').then(function(result) {
+    for (var i = 0; i<result.data.frames.length; i++)
+{
+  
+console.log(result.data.frames[i].nudity.partial);
+  if(result.data.frames[i].nudity.raw>.080)
+  {
+
+  }
+}
 })
+})
+
+
+
 require('./models/Vote');
 const poll = require('./routes/poll');
 
@@ -40,7 +74,7 @@ app.use(cors());
 
 app.use('/', poll);
 
-port = process.env.PORT || 5000;
+port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`server started on port ${port}`);
