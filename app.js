@@ -7,6 +7,33 @@ const path = require('path');
 
 const app = express();
 
+var sightengine = require('sightengine')('1821125839', 'AjmSejyjEv5rVhYjYykW');
+
+sightengine.check(['nudity', 'wad', 'faces', 'face-attributes', 'celebrities']).video('https://sightengine.com/assets/stream/examples/funfair.mp4', 'https://localhost:5000/').then(function(result) {
+  console.log(result)
+}).catch(function(err) {
+  // handle the error
+});
+
+
+
+
+
+
+app.get('/ml',(req,res) => {
+  var sightengine = require('sightengine')('1821125839', 'AjmSejyjEv5rVhYjYykW');
+  sightengine.check(['nudity']).video_sync('https://firebasestorage.googleapis.com/v0/b/loginapp-db171.appspot.com/o/video.mp4?alt=media&token=270f171a-5acf-4e0a-9133-9f096c044c6e').then(function(result) {
+    for (var i = 0; i<result.data.frames.length; i++)
+{
+  
+console.log(result.data.frames.result);
+
+}
+})
+})
+
+
+
 require('./models/Vote');
 const poll = require('./routes/poll');
 
@@ -35,7 +62,7 @@ app.use(cors());
 
 app.use('/', poll);
 
-port = process.env.PORT || 5000;
+port = process.env.PORT || 3000;
 
 app.listen(port, () => {
     console.log(`server started on port ${port}`);
